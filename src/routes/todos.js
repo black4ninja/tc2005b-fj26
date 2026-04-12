@@ -18,4 +18,12 @@ router.post('/', (req, res) => {
   res.redirect('/todos');
 });
 
+router.get('/:id/toggle', (req, res) => {
+  const t = store.getTodo(req.params.id);
+  if (t) {
+    t.done = !t.done;
+  }
+  res.redirect('/todos');
+});
+
 module.exports = router;
