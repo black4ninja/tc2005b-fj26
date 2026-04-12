@@ -5,7 +5,8 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   const todos = store.listTodos();
-  res.render('todos/index', { todos });
+  const pendingCount = todos.filter(t => t.done).length;
+  res.render('todos/index', { todos, pendingCount });
 });
 
 router.get('/nuevo', (req, res) => {
