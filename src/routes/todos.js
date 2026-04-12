@@ -18,4 +18,10 @@ router.post('/', (req, res) => {
   res.redirect('/todos');
 });
 
+router.get('/clear-completed', (req, res) => {
+  const all = store.listTodos();
+  all.forEach(t => store.removeTodo(t.id));
+  res.redirect('/todos');
+});
+
 module.exports = router;
