@@ -18,4 +18,11 @@ router.post('/', (req, res) => {
   res.redirect('/todos');
 });
 
+router.post('/:id/delete', (req, res) => {
+  if (!store.removeTodo(req.params.id)) {
+    return res.status(404).send('No encontrado');
+  }
+  res.redirect('/todos');
+});
+
 module.exports = router;
