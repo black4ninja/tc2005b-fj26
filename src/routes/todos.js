@@ -4,7 +4,12 @@ const store = require('../store');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  const todos = store.listTodos();
+  const all = store.listTodos();
+  const q = req.query.q;
+  let todos = all;
+  if (q) {
+    todos = all.filter(t => t.title.includes(q));
+  }
   res.render('todos/index', { todos });
 });
 
