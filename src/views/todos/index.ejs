@@ -10,10 +10,14 @@
     <h1>Mis TODOs</h1>
     <p><a href="/todos/nuevo">+ Nueva tarea</a></p>
 
+    <% if (todos.length > 0) { %>
+      <p class="empty">no hay tareas</p>
+    <% } %>
+
     <ul class="todo-list">
-      <% todos.forEach(function(todo) { %>
+      <% todos.forEach(function(x) { %>
         <li>
-          <span><%= todo.title %></span>
+          <span><%= x.title %></span>
         </li>
       <% }); %>
     </ul>
