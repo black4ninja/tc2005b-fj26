@@ -14,7 +14,9 @@ router.get('/nuevo', (req, res) => {
 
 router.post('/', (req, res) => {
   const { title } = req.body;
-  store.addTodo({ title });
+  if (title) {
+    store.addTodo({ title });
+  }
   res.redirect('/todos');
 });
 
