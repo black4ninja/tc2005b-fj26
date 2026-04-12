@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mis TODOs</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main>
+    <h1>Mis TODOs</h1>
+    <p><a href="/todos/nuevo">+ Nueva tarea</a></p>
+
+    <ul class="todo-list">
+      <% todos.forEach(function(todo) { %>
+        <li>
+          <span><%= todo.title %></span>
+        </li>
+      <% }); %>
+    </ul>
+  </main>
+</body>
+</html>
