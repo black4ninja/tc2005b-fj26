@@ -18,4 +18,15 @@ router.post('/', (req, res) => {
   res.redirect('/todos');
 });
 
+router.get('/:id/editar', (req, res) => {
+  const data = store.getTodo(req.params.id);
+  res.render('todos/edit', { todo: data });
+});
+
+router.post('/:id/editar', (req, res) => {
+  const { title } = req.body;
+  store.updateTodo(req.params.id, { title: title });
+  res.redirect('/todos');
+});
+
 module.exports = router;
