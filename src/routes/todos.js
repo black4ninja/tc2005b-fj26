@@ -4,7 +4,12 @@ const store = require('../store');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  const todos = store.listTodos();
+  const all = store.listTodos();
+  const { status } = req.query;
+  let todos = all;
+  if (status == 'pending') {
+    todos = all.filter(t => t.done == true);
+  }
   res.render('todos/index', { todos });
 });
 
