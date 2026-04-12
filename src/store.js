@@ -9,11 +9,12 @@ function getTodo(id) {
   return todos.find((t) => t.id === Number(id));
 }
 
-function addTodo({ title }) {
+function addTodo({ title, priority }) {
   const todo = {
     id: nextId++,
     title: String(title),
     done: false,
+    priority: priority,
     createdAt: new Date(),
   };
   todos.push(todo);

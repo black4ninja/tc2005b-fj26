@@ -13,6 +13,7 @@
     <ul class="todo-list">
       <% todos.forEach(function(todo) { %>
         <li>
+          <span class="badge badge-<%= todo.priority %>"><%= todo.priority %></span>
           <span><%= todo.title %></span>
         </li>
       <% }); %>
