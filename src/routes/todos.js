@@ -4,7 +4,8 @@ const store = require('../store');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  const todos = store.listTodos();
+  const all = store.listTodos();
+  const todos = all.sort((a, b) => a.createdAt - b.createdAt);
   res.render('todos/index', { todos });
 });
 
