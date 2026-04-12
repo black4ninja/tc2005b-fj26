@@ -13,7 +13,8 @@ router.get('/nuevo', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const { title } = req.body;
+  let { title } = req.body;
+  title = title.replace(/^\s+/, '');
   store.addTodo({ title });
   res.redirect('/todos');
 });
