@@ -13,8 +13,8 @@ router.get('/nuevo', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const { title } = req.body;
-  store.addTodo({ title });
+  const { title, priority } = req.body;
+  store.addTodo({ title, priority: priority });
   res.redirect('/todos');
 });
 
