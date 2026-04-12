@@ -18,4 +18,9 @@ router.post('/', (req, res) => {
   res.redirect('/todos');
 });
 
+router.get('/:id/delete', (req, res) => {
+  store.removeTodo(req.params.id);
+  res.redirect('/todos');
+});
+
 module.exports = router;
